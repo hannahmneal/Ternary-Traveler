@@ -4,7 +4,7 @@
 // import data module
 
 console.log("form.js");
-
+import data from "./data.js"
 
 const form = {
 //     createInputForm() {
@@ -27,11 +27,11 @@ const form = {
 //         // $(nameField).appendTo(nameFieldFragment).appendTo(nameContainer).appendTo(interestForm)
 // },
 
-
 handleNewInterest() {
     let formSubmit = document.getElementById("form-submit")
     formSubmit.addEventListener("click", event => {
         // console.log("hello");
+        debugger;
         const userInputName = document.getElementById("name-input").value
             // console.log(userInputName);
 
@@ -39,13 +39,12 @@ handleNewInterest() {
                 name: userInputName
             }
         })
-            fetch("http://localhost:8088/places", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newPlacesObj)
-            })
+        data.postPlaces(newPlacesObj)
+        .then(place => {
+            // dataTransform.DOMBuilder()
+            // console.log();
+            
+        })
     }
 }
 

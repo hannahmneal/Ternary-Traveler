@@ -11,5 +11,17 @@ const fetchData = {
     return fetch("http://localhost:8088/interests")
     .then(interests => interests.json())
     
+    },
+
+    postPlaces(i) {
+        return fetch("http://localhost:8088/places", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(i)
+        })
     }
 }
+
+export default fetchData

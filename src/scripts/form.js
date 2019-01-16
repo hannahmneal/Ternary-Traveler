@@ -26,20 +26,30 @@ const form = {
 //         // let nameFieldFragment = document.createDocumentFragment()
 //         // $(nameField).appendTo(nameFieldFragment).appendTo(nameContainer).appendTo(interestForm)
 // },
+
+
 handleNewInterest() {
     let formSubmit = document.getElementById("form-submit")
-    formSubmit.addEventListener("click", function(event) {
-                // console.log("hello");
-                let userInputName = document.getElementById("name-input").value
-                console.log(userInputName);
+    formSubmit.addEventListener("click", event => {
+        // console.log("hello");
+        const userInputName = document.getElementById("name-input").value
+            // console.log(userInputName);
+
+            const newPlacesObj = {
+                name: userInputName
+            }
+        })
+            fetch("http://localhost:8088/places", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newPlacesObj)
             })
     }
 }
 
 
-    //     let newPlacesObj = {
-
-    //     }
     //     let newInterestObj = {
 
     //     }

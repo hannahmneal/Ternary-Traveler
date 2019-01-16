@@ -7,3 +7,4 @@
 import form from "./form.js"
 
 // console.log(form.createInputForm());
+form.handleNewInterest()

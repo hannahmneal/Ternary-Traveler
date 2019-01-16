@@ -29,13 +29,10 @@ const form = {
 handleNewInterest() {
     let formSubmit = document.getElementById("form-submit")
     formSubmit.addEventListener("click", function(event) {
-                console.log("hello");
-                
-    })
-                // handleSubmitButton(event) {
-                // userInputName = document.getElementById("name-input").value
-                // console.log(userInputName);
-                // }
+                // console.log("hello");
+                let userInputName = document.getElementById("name-input").value
+                console.log(userInputName);
+            })
     }
 }
 

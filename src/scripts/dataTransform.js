@@ -3,11 +3,9 @@
 
 //Promise to pull data from API:
 
-const dataTransform = {
-    transformPlaces() {
-        // You need an object to put the data into; set up object in form.
-        data.getAllPlaces()
-                .then(places => {
-        })
+const createElements = {
+    transformData() {       // This method is "domBuilder()" in flow-chart
+    // transform data from the API into HTML elements that can be appended to the DOM
+    // create empty HTML elements for the data to go in
     }
 }

@@ -3,4 +3,14 @@
 // import dataTransform
 import form from "./form"
 
+
 form.createInputForm()
+
+// This is the "DOM Builder" section (distinct from the HTML-Builder)
+
+const domAppend = {
+    domBuilder() {
+        // Build out the HTML elements necessary to capture information the user enters via the form
+        // let
+    }
+}

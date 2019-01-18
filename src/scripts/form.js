@@ -31,19 +31,19 @@ handleNewInterest() {
     let formSubmit = document.getElementById("form-submit")
     formSubmit.addEventListener("click", event => {
         // console.log("hello");
-        debugger;
+
         const userInputName = document.getElementById("name-input").value
             // console.log(userInputName);
 
-            const newPlacesObj = {
+            let newPlacesObj = {
                 name: userInputName
             }
-        })
-        data.postPlaces(newPlacesObj)
-        .then(place => {
-            // dataTransform.DOMBuilder()
-            // console.log();
-            
+            data.postPlaces(newPlacesObj)
+            .then(place => {
+                // dataTransform.DOMBuilder()
+                // console.log();
+                
+            })
         })
     }
 }

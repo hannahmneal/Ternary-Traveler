@@ -10,7 +10,7 @@ form.createInputForm()
 
 const domAppend = {
     domBuilder() {
-        // Build out the HTML elements necessary to capture information the user enters via the form
-        // let
+        // form.createInputForm()
+        // form.handleNewInterest()
     }
 }

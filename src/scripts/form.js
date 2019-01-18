@@ -4,35 +4,37 @@
 // import data module
 
 console.log("form.js");
-import data from "./data.js"
+import fetchData from "./data.js"
 
 const form = {
-//     createInputForm() {
+    createInputForm() {
         
-//         // let formContainer = document.getElementById("form-container")
+        let formSection = $("#form-display")
+        let formContainer = $("<form>").addClass("form-container").appendTo(formSection)
+        
+        let formHeader = $("<h3>").text("Enter Information")
+        let formHeaderFragment = document.createDocumentFragment() // create fragment
+        $(formHeader).appendTo(formHeaderFragment).appendTo(formContainer)    //append fragment to DOM
+        
+         let nameContainer = $("<fieldset>").appendTo(formContainer)
 
-//         // let interestForm = document.createElement("form")
-//         // $(interestForm).appendTo(formContainer) //append fragment to DOM
-        
-//         // // let formHeader = document.createElement("h3")
-//         // // $(formHeader).text("Enter New Interest")
-//         // // let formHeaderFragment = document.createDocumentFragment() // create fragment
-//         // // $(formHeader).appendTo(formHeaderFragment).appendTo(interestForm)    //append fragment to DOM
-        
-//         // let nameContainer = document.createElement("fieldset")
+        let nameField = $("<input>").attr({"id": "name-field","type": "text", "placeholder": "Name"}).text("Interest Name")
+        let nameFieldFragment = document.createDocumentFragment()
+        $(nameField).appendTo(nameFieldFragment).appendTo(nameContainer)
 
-//         // let nameField = document.createElement("input")
-//         // $(nameField).attr({"id": "name-field","type": "text"}).text("Interest Name")
-//         // let nameFieldFragment = document.createDocumentFragment()
-//         // $(nameField).appendTo(nameFieldFragment).appendTo(nameContainer).appendTo(interestForm)
-// },
+        let formSubmitBtn = $("<button>").attr({"id": "form-submit-btn", "type": "submit"}).text("Submit").appendTo(formContainer)
+        // formSubmitBtn.addEventListener("click", handleNewInterest())
+
+
+},
+
+        // Create a function to append the form fragments to the DOM by passing them in as arguments
 
 handleNewInterest() {
-    let formSubmit = document.getElementById("form-submit")
     formSubmit.addEventListener("click", event => {
         // console.log("hello");
 
-        const userInputName = document.getElementById("name-input").value
+        const userInputName = $("form-container").value
             // console.log(userInputName);
 
             let newPlacesObj = {

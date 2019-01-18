@@ -6,5 +6,4 @@
 // domAppend.js ->
 import form from "./form.js"
 
-// console.log(form.createInputForm());
-form.handleNewInterest()    // Added here in order to test button functionality
+form.createInputForm()

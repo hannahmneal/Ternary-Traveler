@@ -4,8 +4,8 @@ const fetchData = {
     // Use a method to perform a "plug-in" function that will execute fetches with various arguments
     getPlaces() {
         // places
-        return fetch("http://localhost:8088/places")
-        .then(places => places.json())
+        return fetch("http://localhost:8088/places&interests")
+        .then(d => d.json())
     },
     // getInterests() {
     // // interests
@@ -23,6 +23,8 @@ const fetchData = {
             body: JSON.stringify(i)
         })
     }
+
+
 }
 
 

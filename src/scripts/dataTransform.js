@@ -1,11 +1,20 @@
 import form from "./form";
+import fetchPData from "./data"
 
-// Transforms API data to HTML elements
+// "Refreshes" API and transforms data to HTML elements
 // import data
 
 //Promise to pull data from API:
 
 const createElements = {
+    refreshData() {
+
+        data.getPlaces(refreshed => {
+            console.log(refreshed);
+            // let refreshedDataFragment = document.createDocumentFragment();
+    
+        })
+    },
     transformData() {       // This method is "domBuilder()" in flow-chart
     // transform data from the API into HTML elements that can be appended to the DOM
     // create empty HTML elements for the data to go in
@@ -29,11 +38,7 @@ const createElements = {
         let cardContentCost = $("<p>").attr({"id": "card-content-cost"}).appendTo(displayCardsContainer)
         let cardContentReview = $("<p>").attr({"id": "card-content-review"}).appendTo(displayCardsContainer)
         let cardContentPlace = $("<p>").attr({"id": "card-content-place"}).appendTo(displayCardsContainer)
-
-
-
     }
-
 }
 
 export default createElements

@@ -37,10 +37,14 @@ handleNewInterest() {
         const userInputName = $("form-container").value
             // console.log(userInputName);
 
-            let newPlacesObj = {
-                name: userInputName
+            let newObj = {
+                name: userInputName,
+                // description: userInputDesc,
+                // cost: userInputCost,
+                // place: userInputPlace,
+                // review: userInputReview
             }
-            data.postPlaces(newPlacesObj)
+            data.postPlaces(newObj)
             .then(place => {
                 // dataTransform.DOMBuilder()
                 // console.log();

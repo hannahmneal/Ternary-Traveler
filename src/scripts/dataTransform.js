@@ -1,13 +1,25 @@
-// Transforms API data to HTML elements
+// import form from "./form";
+import fetchData from "./data"
+
+// "Refreshes" API and transforms data to HTML elements
 // import data
 
 //Promise to pull data from API:
 
-const dataTransform = {
-    transformPlaces() {
-        // You need an object to put the data into; set up object in form.
-        data.getAllPlaces()
-                .then(places => {
+const createElements = {
+    refreshData() {
+
+        fetchData.getPlaces()
+        .then(r => {
+            // console.log(refreshed);
+            let refreshedDataFragment = document.createDocumentFragment();
+            r.forEach(s => {
+                let sHTML = domAppender.transformData(r)
+                $(refreshedDataFragment).appendTo(sHTML)
+            })
+            let displayElements = document.querySelector
         })
     }
 }
+
+export default createElements

@@ -4,40 +4,87 @@
 // import data module
 
 console.log("form.js");
-
+import fetchData from "./data.js"
 
 const form = {
-    // createInputForm() {
+    createInputForm() {
         
-    //     let formContainer = document.getElementById("form-container")
-
-    //     let interestForm = document.createElement("form")
-    //     $(interestForm).appendTo(formContainer) //append fragment to DOM
+        let formSection = $("#form-display")
+        let formContainer = $("<form>").addClass("form-container").appendTo(formSection)
         
-    //     // let formHeader = document.createElement("h3")
-    //     // $(formHeader).text("Enter New Interest")
-    //     // let formHeaderFragment = document.createDocumentFragment() // create fragment
-    //     // $(formHeader).appendTo(formHeaderFragment).appendTo(interestForm)    //append fragment to DOM
+        let formHeader = $("<h3>").text("Enter Information")
+        let formHeaderFragment = document.createDocumentFragment() // create fragment
+        $(formHeader).appendTo(formHeaderFragment).appendTo(formContainer)    //append fragment to DOM
         
-    //     let nameContainer = document.createElement("fieldset")
+         let nameContainer = $("<fieldset>").appendTo(formContainer)
 
-    //     let nameField = document.createElement("input")
-    //     $(nameField).attr({"id": "name-field","type": "text"}).text("Interest Name")
-    //     let nameFieldFragment = document.createDocumentFragment()
-    //     $(nameField).appendTo(nameFieldFragment).appendTo(nameContainer).appendTo(interestForm)
-        
-    handleNewInterest() {
-        let formSubmit = document.getElementById("form-submit")
+        let nameField = $("<input>").attr({"id": "name-field","type": "text", "placeholder": "Name"}).text("Interest Name")
+        // let nameFieldFragment = document.createDocumentFragment()
+        nameField.appendTo(nameContainer)
 
-        let newPlacesObj = {
+        let descContainer = $("<fieldset>").appendTo(formContainer)
 
-        }
-        let newInterestObj = {
+        let descField = $("<input>").attr({"id": "desc-field","type": "text", "placeholder": "Description"}).text("Description")
+        // let descFieldFragment = document.createDocumentFragment()
+        $(descField).appendTo(descContainer)
 
-        }
+        let costContainer = $("<fieldset>").appendTo(formContainer)
+
+        let costField = $("<input>").attr({"id": "cost-field","type": "text", "placeholder": "Cost"}).text("Cost")
+        // let costFieldFragment = document.createDocumentFragment()
+        $(costField).appendTo(costContainer)
+
+        let placeContainer = $("<fieldset>").appendTo(formContainer)
+
+        let placeField = $("<input>").attr({"id": "place-field","type": "text", "placeholder": "Place"}).text("Place")
+        // let placeFieldFragment = document.createDocumentFragment()
+        $(placeField).appendTo(placeContainer)
+
+        let reviewContainer = $("<fieldset>").appendTo(formContainer)
+
+        let reviewField = $("<input>").attr({"id": "review-field","type": "text", "placeholder": "Review"}).text("Review")
+        // let reviewFieldFragment = document.createDocumentFragment()
+        $(reviewField).appendTo(reviewContainer)
+
+        $("<button>").attr({"id": "form-submit-btn", "type": "submit"}).text("Submit").click((event) => {event.preventDefault(); form.handleNewInterest()}).appendTo(formContainer)
+
+        // formSubmitBtn.addEventListener("click", handleNewInterest())
+
+
+},
+
+        // Create a function to append the form fragments to the DOM by passing them in as arguments
+
+handleNewInterest(event) {
+    // form.createInputForm().formSubmitBtn.addEventListener("click", event => {
+        // console.log("hello");
+
+
+            // console.log(userInputName);
+
+            let newObj = {
+                name: $("#name-field").val(),
+                description: $("#desc-field").val(),
+                cost: $("#cost-field").val(),
+                place: $("#place-field").val(),
+                review: $("#review-field").val()
+            }
+
+            fetchData.postPlaces(newObj)
+            .then(p => {
+                // dataTransform.DOMBuilder()
+                // console.log();
+            })
+        // })
     }
+}
 
-    }
+
+    //     let newInterestObj = {
+
+    //     }
+    // }
+
 
 
 export default form

@@ -5,5 +5,7 @@
 // dataTransform.js ->
 // domAppend.js ->
 import form from "./form.js"
+import createElements from "./dataTransform"
 
-// console.log(form.createInputForm());
+form.createInputForm()
+createElements.refreshData()

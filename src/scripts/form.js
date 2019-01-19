@@ -19,10 +19,35 @@ const form = {
          let nameContainer = $("<fieldset>").appendTo(formContainer)
 
         let nameField = $("<input>").attr({"id": "name-field","type": "text", "placeholder": "Name"}).text("Interest Name")
-        let nameFieldFragment = document.createDocumentFragment()
-        $(nameField).appendTo(nameFieldFragment).appendTo(nameContainer)
+        // let nameFieldFragment = document.createDocumentFragment()
+        nameField.appendTo(nameContainer)
 
-        let formSubmitBtn = $("<button>").attr({"id": "form-submit-btn", "type": "submit"}).text("Submit").appendTo(formContainer)
+        let descContainer = $("<fieldset>").appendTo(formContainer)
+
+        let descField = $("<input>").attr({"id": "desc-field","type": "text", "placeholder": "Description"}).text("Description")
+        // let descFieldFragment = document.createDocumentFragment()
+        $(descField).appendTo(descContainer)
+
+        let costContainer = $("<fieldset>").appendTo(formContainer)
+
+        let costField = $("<input>").attr({"id": "cost-field","type": "text", "placeholder": "Cost"}).text("Cost")
+        // let costFieldFragment = document.createDocumentFragment()
+        $(costField).appendTo(costContainer)
+
+        let placeContainer = $("<fieldset>").appendTo(formContainer)
+
+        let placeField = $("<input>").attr({"id": "place-field","type": "text", "placeholder": "Place"}).text("Place")
+        // let placeFieldFragment = document.createDocumentFragment()
+        $(placeField).appendTo(placeContainer)
+
+        let reviewContainer = $("<fieldset>").appendTo(formContainer)
+
+        let reviewField = $("<input>").attr({"id": "review-field","type": "text", "placeholder": "Review"}).text("Review")
+        // let reviewFieldFragment = document.createDocumentFragment()
+        $(reviewField).appendTo(reviewContainer)
+
+        $("<button>").attr({"id": "form-submit-btn", "type": "submit"}).text("Submit").click((event) => {event.preventDefault(); form.handleNewInterest()}).appendTo(formContainer)
+
         // formSubmitBtn.addEventListener("click", handleNewInterest())
 
 
@@ -30,27 +55,27 @@ const form = {
 
         // Create a function to append the form fragments to the DOM by passing them in as arguments
 
-handleNewInterest() {
-    formSubmit.addEventListener("click", event => {
+handleNewInterest(event) {
+    // form.createInputForm().formSubmitBtn.addEventListener("click", event => {
         // console.log("hello");
 
-        const userInputName = $("form-container").value
+
             // console.log(userInputName);
 
             let newObj = {
-                name: userInputName,
-                // description: userInputDesc,
-                // cost: userInputCost,
-                // place: userInputPlace,
-                // review: userInputReview
+                name: $("#name-field").val(),
+                description: $("#desc-field").val(),
+                cost: $("#cost-field").val(),
+                place: $("#place-field").val(),
+                review: $("#review-field").val()
             }
-            data.postPlaces(newObj)
-            .then(place => {
+
+            fetchData.postPlaces(newObj)
+            .then(p => {
                 // dataTransform.DOMBuilder()
                 // console.log();
-                
             })
-        })
+        // })
     }
 }
 

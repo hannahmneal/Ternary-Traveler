@@ -36,7 +36,12 @@ const form = {
 
         let placeContainer = $("<fieldset>").appendTo(formContainer)
 
-        let placeField = $("<input>").attr({"id": "place-field","type": "text", "placeholder": "Place"}).text("Place")
+        let placeField = $("<select>").attr({"id": "place-field","type": "text", "placeholder": "Place"}).text("Place")
+            fetchData.getPlaces().then(res => {
+                res.map(place => {
+                    $("<option>").attr("value", place.name).text(place.name).appendTo(placeField)
+                })
+            })
         // let placeFieldFragment = document.createDocumentFragment()
         $(placeField).appendTo(placeContainer)
 

@@ -1,5 +1,6 @@
 // import form from "./form";
 import fetchData from "./data"
+import domAppender from "./domAppend"
 
 // "Refreshes" API and transforms data to HTML elements
 // import data
@@ -9,15 +10,17 @@ import fetchData from "./data"
 const createElements = {
     refreshData() {
 
-        fetchData.getPlaces()
+        fetchData.getInterests()
         .then(r => {
             // console.log(refreshed);
-            let refreshedDataFragment = document.createDocumentFragment();
+            // let refreshedDataFragment = document.createDocumentFragment();
+            let refreshedDataFragment = $("div")
             r.forEach(s => {
-                let sHTML = domAppender.transformData(r)
-                $(refreshedDataFragment).appendTo(sHTML)
+                console.log(s)
+                let sHTML = domAppender.transformData(s)
+                refreshedDataFragment.append(sHTML)
             })
-            let displayElements = document.querySelector
+            refreshedDataFragment.appendTo("#cards-display")
         })
     }
 }

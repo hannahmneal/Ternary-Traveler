@@ -7,12 +7,12 @@ const fetchData = {
         return fetch("http://localhost:8088/places")
         .then(d => d.json())
     },
-    // getInterests() {
-    // // interests
-    // return fetch("http://localhost:8088/interests")
-    // .then(interests => interests.json())
+    getInterests() {
+    // interests
+    return fetch("http://localhost:8088/interests")
+    .then(interests => interests.json())
     
-    // },
+    },
     
     postPlaces(i) {
         return fetch("http://localhost:8088/places", {

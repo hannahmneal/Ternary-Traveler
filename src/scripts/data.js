@@ -22,7 +22,24 @@ const fetchData = {
             },
             body: JSON.stringify(i)
         })
-    }
+    },
+
+    // PUT Interests
+
+
+    // PATCH interests
+    patchInterests(i) {
+        return fetch("http://localhost:8088/interests", {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(i)
+        })
+        
+    },
+
+    // DELETE interests
 
 
 }

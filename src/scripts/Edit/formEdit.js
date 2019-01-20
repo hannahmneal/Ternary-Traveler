@@ -18,28 +18,32 @@ import form from "../form";
 // import domAppender from "../domAppend";     // This is for the recycled form. You will add the edited data to it.
 
 const editInterest = {
-    createEditForm() {
-
-        // $("<button>").attr({"id": "edit-btn", "type": "submit"}).text("Edit").click((event) => {event.preventDefault(); form.handleEdit()}).appendTo(form.createInputForm().formContainer)
-        // $("<button>").attr({"id": "delete-btn", "type": "submit"}).text("Delete").click((event) => {event.preventDefault(); form.handleDelete()}).appendTo(formContainer)
-        // $("<button>").attr({"id": "save-btn", "type": "submit"}).text("Save").click((event) => {event.preventDefault(); form.handleSave()}).appendTo(formContainer)
-
-
+    createEditForm(edited) {
 
         form.createInputForm()
 
-        let costContainer = $("<fieldset>").appendTo(formContainer)
-        let costField = $("<input>").attr({"id": "cost-field","type": "text", "placeholder": "Cost"}).text("Cost")
-        $(costField).appendTo(costContainer)
+        let editCostContainer = $("<fieldset>").appendTo(formContainer)
+        let editCostField = $("<input>").attr({"id": "cost-field","type": "text", "placeholder": "Cost"})
+        $(editCostField).appendTo(costContainer)
 
         $("<div>").attr({"id":"cost-edit"}).appendTo(displayCardsContainer)
-        $("<p>").text(s.cost).appendTo("#cost-edit")
+        $("<p>").text(edited.cost).appendTo("#cost-edit")
 
     },
 
-    handleEdit() {
+    handleEdit(event) {
         console.log("edit");
-        
+        let editObj = {
+            cost: $("#cost-field").val(),
+            review: $("#review-field").val()
+        }
+
+        fetchData.patchInterests(editObj)
+        .then(edited => {
+            console.log(edited);
+
+        })
+
     },
     handleDelete() {
         console.log("delete");

@@ -7,13 +7,13 @@ const fetchData = {
         return fetch("http://localhost:8088/places")
         .then(d => d.json())
     },
+
     getInterests() {
     // interests
     return fetch("http://localhost:8088/interests")
     .then(interests => interests.json())
-    
     },
-    
+
     postPlaces(i) {
         return fetch("http://localhost:8088/places", {
             method: "POST",
@@ -24,19 +24,15 @@ const fetchData = {
         })
     },
 
-    // PUT Interests
-
-
     // PATCH interests
-    patchInterests(i) {
-        return fetch("http://localhost:8088/interests", {
+    patchInterests(id, propEdit) {  // propEdit = edited property of an existing object in the database, i.e., cost or review
+        fetch("http://localhost:8088/interests/${id}", {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(i)
         })
-        
     },
 
     // DELETE interests

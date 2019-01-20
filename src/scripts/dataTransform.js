@@ -28,10 +28,27 @@ const createElements = {
             refreshedDataFragment.appendTo("#cards-display")    // append the fragment to the DOM
         })
     },
-    // Invoke the fetch calls required for editForm (PUT, PATCH, and DELETE). Call this function in formEdit.
-    editedData() {
 
-    }
+//======================================  REFRESH EDITED DATA    =====================================================
+// Tap
+
+        // getId() {
+
+        //     fetchData.getInterests()
+        //     .then(res => {
+        //         console.log(res);
+
+        //         res.forEach(int => {
+        //             // $("id").obj.places.val()
+        //             console.log(int);
+
+        //         })
+        //     })
+        // }
+    // Invoke the fetch calls required for editForm (PUT, PATCH, and DELETE). Call this function in formEdit.
+    // editedData() {
+
+    // }
 }
 
 export default createElements

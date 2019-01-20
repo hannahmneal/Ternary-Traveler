@@ -12,6 +12,7 @@ import createElements from "./dataTransform"
 form.createInputForm()
 createElements.refreshData()
 //The data.js createElements.refreshData() method is doing this: api.getPlaces().then(res => console.log(res))
+// editInterest.createEditForm()
 
 // You don't have to use the object names when you import them. As long as there is a valid export statement, you can call the imports whatever you want.
 // For instance: import createElements from ".dataTransform" could be written, import api from "./data"

@@ -1,15 +1,8 @@
-// Appends elements created in dataTransform to DOM
-// Displays the current interests; calls data form when "new interest" is clicked.
-// import dataTransform
-// import form from "./form"
-// import createElements from "./dataTransform"
-
-// form.createInputForm()
+// This module transform data from the API into HTML elements that can be appended to the DOM
+// Build out the HTML elements necessary to capture information the user enters via the form
 
 const domAppender = {
-    transformData(s) {       // This method is "domBuilder()" in flow-chart
-    // transform data from the API into HTML elements that can be appended to the DOM
-        // Build out the HTML elements necessary to capture information the user enters via the form
+    transformData(s) {
         
         let displayCardsContainer = $("div").attr({"class":"cards-container"})
         console.log(displayCardsContainer);
@@ -18,22 +11,23 @@ const domAppender = {
         
         // Given a user already has points of interests
         // When the user opens the application, all points of interests should be displayed with their:
-        //  name,
+        // name,
         // description,
         // cost,
         // review if it's not blank and
         // the place it is located
+
         $("<h4>").text(s.name).appendTo(displayCardsContainer)
         $("<p>").text(s.description).appendTo(displayCardsContainer)
         $("<p>").text(s.cost).appendTo(displayCardsContainer)
         $("<p>").text(s.place).appendTo(displayCardsContainer)
         $("<p>").text(s.review).appendTo(displayCardsContainer)
+        // The "review" feature should only be displayed if the user clicks "edit" on the card and adds the review.
 
-        // let cardContentDesc = $("<p>").attr({"id": "card-content-desc"}).appendTo(displayCardsContainer)
-        // let cardContentCost = $("<p>").attr({"id": "card-content-cost"}).appendTo(displayCardsContainer)
-        // let cardContentReview = $("<p>").attr({"id": "card-content-review"}).appendTo(displayCardsContainer)
-        // let cardContentPlace = $("<p>").attr({"id": "card-content-place"}).appendTo(displayCardsContainer)
-        return displayCardsContainer
+        // It is not necessary to declare a variable before creating and appending the elements; jQuery doesn't care about that.
+        // Therefore, this: let cardContentDesc = $("<p>").attr({"id": "card-content-desc"}).appendTo(displayCardsContainer) is incorrect for jQ.
+
+        return displayCardsContainer    // You have to include a "return"!
     }
 }
 export default domAppender

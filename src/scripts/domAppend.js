@@ -32,16 +32,20 @@ const domAppender = {
         // .click((event) => {event.preventDefault(); editInterest.handleSave()})
         // The .click is for the edit form later; the modele and methods have not been created yet
 
-        
-        return displayCardsContainer    // You have to include a "return"!
-    },
-    transformEdited(int) {
-        // Should return a log of the interests retrieved from the fetch call in dataTransform
-        // console.log();
-        // Separate divs for "editable" content; can be selected and appended separately; try using "contenteditable" method for cost and review
-        
 
+        return displayCardsContainer    // You have to include a "return"!
     }
+//======================================  TRANSFORM-HTML METHOD FOR EDITED CONTENT =====================================================
+// Create a method that loops through getInterests and builds display cards for edited content; ideally, it will reuse the original form
+
+    // transformEdited(int) {
+    //     // Should return a log of the interests retrieved from the fetch call in dataTransform
+    //     // console.log();
+    //     // Separate divs for "editable" content; can be selected and appended separately; try using "contenteditable" method for cost and review
+
+    // }
+
+    // return displayEditedContainer
 }
 
 export default domAppender

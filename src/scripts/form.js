@@ -27,6 +27,7 @@ const form = {
         let costField = $("<input>").attr({"id": "cost-field","type": "text", "placeholder": "Cost", "contentEditable": false})
         $(costField).appendTo(costContainer)
 
+        //DROPDOWN:
         let placeContainer = $("<fieldset>").appendTo(formContainer)
         let placeField = $("<select>").attr({"id": "place-field","type": "text", "placeholder": "Place"}).text("Place")
             fetchData.getPlaces().then(res => {

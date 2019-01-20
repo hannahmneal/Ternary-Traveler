@@ -16,15 +16,15 @@ const form = {
         $(formHeader).appendTo(formHeaderFragment).appendTo(formContainer)    //append fragment to DOM
 
         let nameContainer = $("<fieldset>").appendTo(formContainer)
-        let nameField = $("<input>").attr({"id": "name-field","type": "text", "placeholder": "Name"}).text("Interest Name")
+        let nameField = $("<input>").attr({"id": "name-field","type": "text", "placeholder": "Name"})
         nameField.appendTo(nameContainer)
 
         let descContainer = $("<fieldset>").appendTo(formContainer)
-        let descField = $("<input>").attr({"id": "desc-field","type": "text", "placeholder": "Description"}).text("Description")
+        let descField = $("<input>").attr({"id": "desc-field","type": "text", "placeholder": "Description"})
         $(descField).appendTo(descContainer)
 
         let costContainer = $("<fieldset>").appendTo(formContainer)
-        let costField = $("<input>").attr({"id": "cost-field","type": "text", "placeholder": "Cost"}).text("Cost")
+        let costField = $("<input>").attr({"id": "cost-field","type": "text", "placeholder": "Cost", "contentEditable": false})
         $(costField).appendTo(costContainer)
 
         let placeContainer = $("<fieldset>").appendTo(formContainer)

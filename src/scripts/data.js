@@ -25,13 +25,13 @@ const fetchData = {
     },
 
     // PATCH interests
-    patchInterests(id, editObj) {  // propEdit = edited property of an existing object in the database, i.e., cost or review
+    patchInterests() {  // propEdit = edited property of an existing object in the database, i.e., cost or review
         return fetch("http://localhost:8088/interests", {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(id, editObj)
+            body: JSON.stringify()
         })
     },
 

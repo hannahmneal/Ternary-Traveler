@@ -74,17 +74,21 @@ const form = {
         // $(placeId).this.event.target.id   // Not sure if this is correct
 
         //Commented this out to test the event.target code above:
-        // let deleteInterestObj = {
-        //     name: $("#name-field").val(),
-        //     description: $("#desc-field").val(),
-        //     cost: $("#cost-field").val(),
-        //     place: $("#place-field").val(),
-        //     review: $("#review-field").val()
-        // }
+        let deleteInterestObj = {
+            name: $("#name-field").val(),
+            description: $("#desc-field").val(),
+            cost: $("#cost-field").val(),
+            place: $("#place-field").val(),
+            review: $("#review-field").val()
+        }
+
+            let delId = `${entry.id}`
+            console.log(delId);
+
 //Passed placeId in below to test
-        fetchData.deleteInterest(placeId) // Is it necessary to have the both elements in the fetch call as arguments?
+        fetchData.deleteInterest(deleteInterestObj) // Is it necessary to have the both elements in the fetch call as arguments?
         .then(del => {
-            domAppender(transformData())
+            domAppender(transformData(deleteInterestObj))
         })
     }
 }

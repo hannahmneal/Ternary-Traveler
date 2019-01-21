@@ -1,6 +1,7 @@
 // This module transform data from the API into HTML elements that can be appended to the DOM
 // Build out the HTML elements necessary to capture information the user enters via the form
 import form from "./form"
+import data from  './data'
 
 const domAppender = {
 
@@ -18,17 +19,6 @@ const domAppender = {
         // cost,
         // review if it's not blank and
         // the place it is located
-
-        // Interest dataset:
-        // {
-        //     "placeId": "",       // Ask about this
-        //     "name": "",
-        //     "description": "",
-        //     "cost": "",
-        //     "place": "",
-        //     "review": "",
-        //     "id": ""             // Ask about this
-        //   }
 
         $("<h4>").text(entry.name).appendTo(displayCardsContainer)
         $("<p>").text(entry.description).appendTo(displayCardsContainer)
@@ -49,7 +39,7 @@ const domAppender = {
         // If the user clicks, "yes", delete
         // If the user clicks, "no", break the handle event
 
-        $("<button>").attr({"class": "delete-btn", "id": `${entry.id}`,"type": "submit"}).click((event) => {form.deleteHandler()}).text("Delete").appendTo(displayCardsContainer)
+        $("<button>").attr({"class": "delete-btn", "id": `${entry.id}`,"type": "submit"}).click((event) => {data.deleteInterest(`${entry.id}`)}).text("Delete").appendTo(displayCardsContainer)
 
         // In order to capture the "id" value of the API entry in the "places" array,
         //set the button attribute id like this:

@@ -8,6 +8,7 @@ import domAppender from "./domAppend"
 const createElements = {
     refreshData() {
 
+        // fetchData.getPlaces()    // Using getPlaces() generates an error.
         fetchData.getInterests()
         .then(r => {
             // console.log(refreshed);

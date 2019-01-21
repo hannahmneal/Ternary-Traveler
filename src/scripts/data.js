@@ -1,3 +1,7 @@
+import domAppender from "./domAppend";
+import createElements from "./dataTransform";
+import form from "./form";
+
 // Fetch call
 
 const fetchData = {
@@ -23,33 +27,44 @@ const fetchData = {
         })
     },
 
-    deleteItem(id) {
-    return fetch(`http://localhost:8088/${id}`, {
+    deleteInterest(delId) {
+    return fetch(`http://localhost:8088/interests/${delId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
       }
+    }).then(r => r.json())
+    .then(entry => {
+
+        $('#form-display').empty()
+        $('#cards-display').empty()
+        form.createInputForm()
+        createElements.refreshData()
     })
   },
 //=========================================     FETCH EDITED CONTENT    =================================================
+    //PATCH interests
+        patchInterests(id, review) {  // propEdit = edited property of an existing object in the database, i.e., cost or review
+        return fetch(`http://localhost:8088/interests${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(review)
 
-    // getEditedInterests(id) {
-    //     return fetch("http://localhost:8088/interests/${id}?_expand=place")
-    //     .then(editedInt => editedInt.json())
-    //     console.log(editedInt);
-    // },
-    // PATCH interests
-    // patchInterests(id, review) {  // propEdit = edited property of an existing object in the database, i.e., cost or review
-    //     return fetch(`http://localhost:8088/interests${id}`, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(review)
-    //     })
-    // },
+        })
+    },
 
-    // DELETE interests
+        getEditedInterests(editId) {
+            return fetch(`http://localhost:8088/interests/${editId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editId)
+        }).then(r => r.json())
+            console.log(editedInt);
+    }
 }
 
 export default fetchData

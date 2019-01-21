@@ -2,6 +2,7 @@
 // Build out the HTML elements necessary to capture information the user enters via the form
 
 const domAppender = {
+
     transformData(entry) {
 
         let displayCardsContainer = $("div").attr({"class":"cards-container", "id": "cards-display"})
@@ -26,17 +27,24 @@ const domAppender = {
 
         $("<button>").attr({"id": "edit-btn", "type": "submit"}).text("Edit").appendTo(displayCardsContainer)
         // .click((event) => {event.preventDefault(); editInterest.handleEdit()})
-        $("<button>").attr({"id": `transformData--${entry.split}`, "type": "submit"}).text("Delete").appendTo(displayCardsContainer)
-        // .click((event) => {event.preventDefault(); editInterest.handleDelete()})
-        // Capture the entry id (from the "places" array in the API) by setting the delete button's attribute id to the entry id so it can be split later.
 
+//======================================    HANDLE DELETE AND CAPTURE ENTRY "ID"    ===============================================
+
+        $("<button>").attr({"class": "delete-btn", "id": `${entry.id}`,"type": "submit"}).text("Delete").appendTo(displayCardsContainer)
+        // In order to capture the "id" value of the API entry in the "places" array,
+        //set the button attribute id like this:
+        // .attr({"id": `${entry.id}`})
+        // When the browser is refreshed and the button element inspected, the "id" will be equal to the first entry's id (in this case, it shows id=1)
+
+
+//=================================================================================================================================
         $("<button>").attr({"id": "save-btn", "type": "submit"}).text("Save").appendTo(displayCardsContainer)
         // .click((event) => {event.preventDefault(); editInterest.handleSave()})
         // The .click is for the edit form later; the modele and methods have not been created yet
 
 
         return displayCardsContainer    // You have to include a "return"!
-    }
+
 //======================================  TRANSFORM-HTML METHOD FOR EDITED CONTENT =====================================================
 // Create a method that loops through getInterests and builds display cards for edited content; ideally, it will reuse the original form
 
@@ -48,6 +56,6 @@ const domAppender = {
     // }
 
     // return displayEditedContainer
+    }
 }
-
 export default domAppender

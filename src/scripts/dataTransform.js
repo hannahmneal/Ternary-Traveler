@@ -10,11 +10,11 @@ const createElements = {
 
         fetchData.getPlaces()    // Using getPlaces() generates an error.
         // fetchData.getInterests()
-        .then(r => {
+        .then(r => {    // r = response or refreshed data
             // console.log(refreshed);
             let refreshedPlaceFragment = $("div")    // jQuery creates fragments differently from vanilla JS; in JS, this would be: let refreshedDataFragment = document.createDocumentFragment();
             r.forEach(entry => {
-                // console.log(entry)
+                console.log(entry)  // This returns each object in the "places" array (e.g., {id: 1, name: "Buenos Aires", visa_required: false})
                 let entryHTML = domAppender.transformData(entry)
                 refreshedPlaceFragment.append(entryHTML)
                 // Translation:
@@ -26,7 +26,7 @@ const createElements = {
                     // you will also need to pass "s" in as an argument in domAppend.js in the transformData() method.
                 // 4. Append the data display card you just created to the refreshedDataFragment.
             })
-            refreshedPlaceFragment.appendTo("cards-container")    // append the fragment to the DOM
+            refreshedPlaceFragment.appendTo("#cards-display")    // append the fragment to the DOM
         })
     }
 

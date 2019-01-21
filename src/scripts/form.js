@@ -4,6 +4,7 @@
 
 console.log("form.js");
 import fetchData from "./data.js"
+import domAppender from "./domAppend.js";
 
 const form = {
     createInputForm() {
@@ -29,14 +30,15 @@ const form = {
 
         //DROPDOWN:
         let placeContainer = $("<fieldset>").appendTo(formContainer)
-        let placeField = $("<select>").attr({"id": "place-field","type": "text", "placeholder": "Place"}).text("Place")
+        let placeField = $("<select>").attr({"id": "place-field","type": "text"}).text("Place")
             fetchData.getPlaces().then(res => { // This fetch call is getting the list of places directly from the API.
                 res.map(place => {
-                    $("<option>").attr("value", place.id).text(place.name).appendTo(placeField) // place.id is the value of the place in the "places" array.
+                    $("<option>").attr({"id": "drop-down-opt","value": place.id}).text(place.name).appendTo(placeField) // place.id is the value of the place in the "places" array.
                 })
             })
         $(placeField).appendTo(placeContainer)
 
+        // REVIEW SECTION:
         let reviewContainer = $("<fieldset>").appendTo(formContainer)
         let reviewField = $("<input>").attr({"id": "review-field","type": "text", "placeholder": "Review"}).text("Review")
         $(reviewField).appendTo(reviewContainer)
@@ -51,14 +53,15 @@ const form = {
 
         let newInterestObj = {
 
-            // placeId: // This needs to be assigned to the correct place id
+            placeId: $('#drop-down-opt').val(),  // This needs to be assigned to the correct place id; Not sure how to target the value
             name: $("#name-field").val(),   // When using jQ, you .val() is a method; in vanilla JS, .value is sufficient.
             description: $("#desc-field").val(),
             cost: $("#cost-field").val(),
             place: $("#place-field").val(),
             review: $("#review-field").val()
-            //The review should not be visible until the user enters it (via the "edit") feature on the display card.
+           //The review should not be visible until the user enters it (via the "edit") feature on the display card.
         }
+        console.log(newInterestObj.placeId);
 
         fetchData.postInterest(newInterestObj)
         .then(p => {
@@ -68,17 +71,20 @@ const form = {
     deleteHandler(event) {
         console.log("goodbye");
 
-        let deleteInterestObj = {
-            name: $("#name-field").val(),
-            description: $("#desc-field").val(),
-            cost: $("#cost-field").val(),
-            place: $("#place-field").val(),
-            review: $("#review-field").val()
-        }
+        // $(placeId).this.event.target.id   // Not sure if this is correct
 
-        fetchData.deleteInterest(deleteInterestObj) // Is it necessary to have the both elements in the fetch call as arguments?
+        //Commented this out to test the event.target code above:
+        // let deleteInterestObj = {
+        //     name: $("#name-field").val(),
+        //     description: $("#desc-field").val(),
+        //     cost: $("#cost-field").val(),
+        //     place: $("#place-field").val(),
+        //     review: $("#review-field").val()
+        // }
+//Passed placeId in below to test
+        fetchData.deleteInterest(placeId) // Is it necessary to have the both elements in the fetch call as arguments?
         .then(del => {
-
+            domAppender(transformData())
         })
     }
 }

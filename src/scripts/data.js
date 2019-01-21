@@ -23,7 +23,7 @@ const fetchData = {
         })
     },
 
-    deleteHandler(id) {
+    deleteHandler() {
     return fetch(`http://localhost:8088/${entry.id}`, {
       method: "DELETE",
       headers: {

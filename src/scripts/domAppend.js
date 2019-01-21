@@ -30,9 +30,6 @@ const domAppender = {
         //     "id": ""             // Ask about this
         //   }
 
-
-        // let displayCardsContainer = $("div")
-        // displayCardsContainer.appendTo(displayCardsContainer)
         $("<h4>").text(entry.name).appendTo(displayCardsContainer)
         $("<p>").text(entry.description).appendTo(displayCardsContainer)
         $("<p>").text(entry.place).appendTo(displayCardsContainer)
@@ -53,6 +50,7 @@ const domAppender = {
         // If the user clicks, "no", break the handle event
 
         $("<button>").attr({"class": "delete-btn", "id": `${entry.id}`,"type": "submit"}).click((event) => {form.deleteHandler()}).text("Delete").appendTo(displayCardsContainer)
+
         // In order to capture the "id" value of the API entry in the "places" array,
         //set the button attribute id like this:
         // .attr({"id": `${entry.id}`})

@@ -3,13 +3,11 @@
 const fetchData = {
     // Use a method to perform a "plug-in" function that will execute fetches with various arguments (a "fetch factory")
     getPlaces() {
-        // places
         return fetch("http://localhost:8088/places")
         .then(place => place.json())
     },
 
     getInterests() {
-    // interests
     // return fetch("http://localhost:8088/interests/?_expand=place")   // What does this mean?
     return fetch("http://localhost:8088/interests")
     .then(interests => interests.json())
@@ -24,6 +22,15 @@ const fetchData = {
             body: JSON.stringify(i)
         })
     },
+
+    deleteItem(id) {
+    return fetch(`http://localhost:8088/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+  },
 //=========================================     FETCH EDITED CONTENT    =================================================
 
     // getEditedInterests(id) {

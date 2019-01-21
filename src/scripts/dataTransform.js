@@ -13,10 +13,10 @@ const createElements = {
         .then(r => {
             // console.log(refreshed);
             let refreshedDataFragment = $("div")    // jQuery creates fragments differently from vanilla JS; in JS, this would be: let refreshedDataFragment = document.createDocumentFragment();
-            r.forEach(s => {
+            r.forEach(entry => {
                 // console.log(s)
-                let sHTML = domAppender.transformData(s)
-                refreshedDataFragment.append(sHTML)
+                let entryHTML = domAppender.transformData(entry)
+                refreshedDataFragment.append(entryHTML)
                 // Translation:
                 // 1. Tap fetchData.getInterests() for the data and return it in the form of "r" so it can be manipulated.
                 // 2. Create a fragment in which to display the data; You will use it later.

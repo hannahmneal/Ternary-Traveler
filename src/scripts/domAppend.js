@@ -6,7 +6,7 @@ const domAppender = {
 
     transformData(entry) {
 
-        let displayCardsContainer = $("div").attr({"class":"cards-container"})
+        let displayCardsContainer = $("#cards-display")
         // console.log(displayCardsContainer);
 
         // displayCardsContainer.appendTo("#cards-display")
@@ -41,8 +41,6 @@ const domAppender = {
         // It is not necessary to declare a variable before creating and appending the elements; jQuery doesn't care about that.
         // Therefore, this: let cardContentDesc = $("<p>").attr({"id": "card-content-desc"}).appendTo(displayCardsContainer) is incorrect for jQ.
 
-
-
 //============================================      EDIT BUTTON     =====================================================================
 
         $("<button>").attr({"id": "edit-btn","type": "submit"}).text("Edit").appendTo(displayCardsContainer)
@@ -60,7 +58,8 @@ const domAppender = {
         // .attr({"id": `${entry.id}`})
         // When the browser is refreshed and the button element inspected, the "id" will be equal to the first entry's id (in this case, it shows id=1)
         // $(".delete-btn").click((event) => {form.deleteHandler()})
-//============================================      SAVE BUTTON     =====================================================================================
+
+        //============================================      SAVE BUTTON     =====================================================================================
 // The save button needs to trigger a handler that sends PATCH to the API and updates the cards display
 
         $("<button>").attr({"id": "save-btn", "type": "submit"}).text("Save").appendTo(displayCardsContainer)

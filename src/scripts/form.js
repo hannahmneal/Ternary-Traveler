@@ -30,9 +30,9 @@ const form = {
         //DROPDOWN:
         let placeContainer = $("<fieldset>").appendTo(formContainer)
         let placeField = $("<select>").attr({"id": "place-field","type": "text", "placeholder": "Place"}).text("Place")
-            fetchData.getPlaces().then(res => {
+            fetchData.getPlaces().then(res => { // This fetch call is getting the list of places directly from the API.
                 res.map(place => {
-                    $("<option>").attr("value", place.id).text(place.name).appendTo(placeField)
+                    $("<option>").attr("value", place.id).text(place.name).appendTo(placeField) // place.id is the value of the place in the "places" array.
                 })
             })
         $(placeField).appendTo(placeContainer)

@@ -26,7 +26,7 @@ const createElements = {
                     // you will also need to pass "s" in as an argument in domAppend.js in the transformData() method.
                 // 4. Append the data display card you just created to the refreshedDataFragment.
             })
-            refreshedPlaceFragment.appendTo("#cards-display")    // append the fragment to the DOM
+            refreshedPlaceFragment.appendTo("cards-container")    // append the fragment to the DOM
         })
     }
 

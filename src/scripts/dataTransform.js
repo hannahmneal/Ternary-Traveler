@@ -8,13 +8,13 @@ import domAppender from "./domAppend"
 const createElements = {
     refreshData() {
 
-        // fetchData.getPlaces()    // Using getPlaces() generates an error.
-        fetchData.getInterests()
+        fetchData.getPlaces()    // Using getPlaces() generates an error.
+        // fetchData.getInterests()
         .then(r => {
             // console.log(refreshed);
             let refreshedDataFragment = $("div")    // jQuery creates fragments differently from vanilla JS; in JS, this would be: let refreshedDataFragment = document.createDocumentFragment();
             r.forEach(entry => {
-                // console.log(s)
+                // console.log(entry)
                 let entryHTML = domAppender.transformData(entry)
                 refreshedDataFragment.append(entryHTML)
                 // Translation:
@@ -28,7 +28,7 @@ const createElements = {
             })
             refreshedDataFragment.appendTo("#cards-display")    // append the fragment to the DOM
         })
-    },
+    }
 
 //======================================  REFRESH EDITED DATA    =====================================================
 // Tap

@@ -13,8 +13,8 @@ const fetchData = {
     .then(interests => interests.json())
     },
 
-    postPlaces(i) {
-        return fetch("http://localhost:8088/places", {
+    postInterest(i) {
+        return fetch("http://localhost:8088/interests", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -24,13 +24,13 @@ const fetchData = {
     },
 
     deleteItem(id) {
-    return fetch(`http://localhost:8088/${id}`, {
+    return fetch(`http://localhost:8088/${entry.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
       }
     })
-  },
+  }
 //=========================================     FETCH EDITED CONTENT    =================================================
 
     // getEditedInterests(id) {

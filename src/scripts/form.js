@@ -12,8 +12,8 @@ const form = {
         let formContainer = $("<form>").addClass("form-container").appendTo(formSection)
 
         let formHeader = $("<h3>").text("Enter Information")
-        let formHeaderFragment = document.createDocumentFragment() // create fragment
-        $(formHeader).appendTo(formHeaderFragment).appendTo(formContainer)    //append fragment to DOM
+        // let formHeaderFragment = document.createDocumentFragment() // create fragment
+        $(formHeader).appendTo(formContainer)
 
         let nameContainer = $("<fieldset>").appendTo(formContainer)
         let nameField = $("<input>").attr({"id": "name-field","type": "text", "placeholder": "Name"})
@@ -44,16 +44,14 @@ const form = {
         $("<button>").attr({"id": "form-submit-btn", "type": "submit"}).text("Submit").click((event) => {event.preventDefault(); form.handleNewInterest()}).appendTo(formContainer)
         // This is the correct syntax for creating a button and adding a "click" handler to it; notice that it uses form.handleNewInterest() on the second line and appends it to the formContainer as well.
         // even.preventDefault() in the handler prevents the page reloading in a loop; without it, every time the submit button is clicked, the page will continue to reload.
-},
+    },
 
-handleNewInterest(event) {
-    // console.log("hello");
+    handleNewInterest(event) {
+        // console.log("hello");
 
+        let newInterestObj = {
 
-
-    // write a loop that looks for the id and records it's value
-        let newEventObj = {
-
+            // placeId: // This needs to be assigned to the correct place id
             name: $("#name-field").val(),   // When using jQ, you .val() is a method; in vanilla JS, .value is sufficient.
             description: $("#desc-field").val(),
             cost: $("#cost-field").val(),
@@ -62,12 +60,28 @@ handleNewInterest(event) {
             //The review should not be visible until the user enters it (via the "edit") feature on the display card.
         }
 
-        // fetchData.postInterests(newEventObj)
-        fetchData.postInterest(newEventObj)
+        // fetchData.postInterests(newInterestObj)
+        fetchData.postInterest(newInterestObj)
         .then(p => {
         })
-    }
+    },
 
+    deleteHandler(event) {
+        console.log("goodbye");
+
+        let deleteInterestObj = {
+            name: $("#name-field").val(),
+            description: $("#desc-field").val(),
+            cost: $("#cost-field").val(),
+            place: $("#place-field").val(),
+            review: $("#review-field").val()
+        }
+
+        fetchData.deleteInterest(id, deleteInterestObj) // Is it necessary to have the both elements in the fetch call as arguments?
+        .then(del => {
+
+        })
+    }
 }
 
 export default form

@@ -25,7 +25,9 @@ const domAppender = {
         // It is not necessary to declare a variable before creating and appending the elements; jQuery doesn't care about that.
         // Therefore, this: let cardContentDesc = $("<p>").attr({"id": "card-content-desc"}).appendTo(displayCardsContainer) is incorrect for jQ.
 
-        $("<button>").attr({"id": "edit-btn", "type": "submit"}).text("Edit").appendTo(displayCardsContainer)
+//============================================      EDIT BUTTON     =====================================================================
+
+        $("<button>").attr({"id": "edit-btn","type": "submit"}).text("Edit").appendTo(displayCardsContainer)
         // .click((event) => {event.preventDefault(); editInterest.handleEdit()})
 
 //======================================    HANDLE DELETE AND CAPTURE ENTRY "ID"    ===============================================
@@ -36,12 +38,14 @@ const domAppender = {
         // .attr({"id": `${entry.id}`})
         // When the browser is refreshed and the button element inspected, the "id" will be equal to the first entry's id (in this case, it shows id=1)
 
-
-//=================================================================================================================================
+//============================================      SAVE BUTTON     =====================================================================================
+// The save button needs to trigger a handler that sends PATCH to the API and updates the cards display
+ 
         $("<button>").attr({"id": "save-btn", "type": "submit"}).text("Save").appendTo(displayCardsContainer)
         // .click((event) => {event.preventDefault(); editInterest.handleSave()})
-        // The .click is for the edit form later; the modele and methods have not been created yet
+        // The .click is for the edit form later; the module and methods have not been created yet
 
+//=================================================================================================================================
 
         return displayCardsContainer    // You have to include a "return"!
 

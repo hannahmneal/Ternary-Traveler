@@ -14,7 +14,7 @@ const createElements = {
             // console.log(refreshed);
             let refreshedDataFragment = $("div")    // jQuery creates fragments differently from vanilla JS; in JS, this would be: let refreshedDataFragment = document.createDocumentFragment();
             r.forEach(entry => {
-                // console.log(s)
+                console.log(entry)
                 let entryHTML = domAppender.transformData(entry)
                 refreshedDataFragment.append(entryHTML)
                 // Translation:

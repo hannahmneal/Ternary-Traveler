@@ -52,19 +52,18 @@ handleNewInterest(event) {
 
 
     // write a loop that looks for the id and records it's value
-        let newObj = {
-            placeId: "",
+        let newEventObj = {
+
             name: $("#name-field").val(),   // When using jQ, you .val() is a method; in vanilla JS, .value is sufficient.
             description: $("#desc-field").val(),
             cost: $("#cost-field").val(),
             place: $("#place-field").val(),
-            review: $("#review-field").val(),
-            id: `${id}`
+            review: $("#review-field").val()
             //The review should not be visible until the user enters it (via the "edit") feature on the display card.
         }
 
-        // fetchData.postInterests(newObj)  // Using postInterests() generates an error.
-        fetchData.postPlaces(newObj)    // Calling the postPlaces() method here sends the data in the landing page form to the "places" array.
+        // fetchData.postInterests(newEventObj)
+        fetchData.postInterest(newEventObj)
         .then(p => {
         })
     }

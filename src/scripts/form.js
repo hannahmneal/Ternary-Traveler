@@ -33,7 +33,7 @@ const form = {
         let placeField = $("<select>").attr({"id": "place-field","type": "text"}).text("Place")
             fetchData.getPlaces().then(res => { // This fetch call is getting the list of places directly from the API.
                 res.map(place => {
-                    $("<option>").attr({"id": "drop-down-opt","value": place.id}).text(place.name).appendTo(placeField) // place.id is the value of the place in the "places" array.
+                    $("<option>").attr({"value": place.id}).text(place.name).appendTo(placeField) // place.id is the value of the place in the "places" array.
                 })
             })
         $(placeField).appendTo(placeContainer)
@@ -53,7 +53,7 @@ const form = {
 
         let newInterestObj = {
 
-            placeId: $('#drop-down-opt').val(),  // This needs to be assigned to the correct place id; Not sure how to target the value
+            placeId: $("#place-field").val(),  // This needs to be assigned to the correct place id; Not sure how to target the value
             name: $("#name-field").val(),   // When using jQ, you .val() is a method; in vanilla JS, .value is sufficient.
             description: $("#desc-field").val(),
             cost: $("#cost-field").val(),

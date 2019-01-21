@@ -32,7 +32,7 @@ const form = {
         let placeField = $("<select>").attr({"id": "place-field","type": "text", "placeholder": "Place"}).text("Place")
             fetchData.getPlaces().then(res => {
                 res.map(place => {
-                    $("<option>").attr("value", place.name).text(place.name).appendTo(placeField)
+                    $("<option>").attr("value", place.id).text(place.name).appendTo(placeField)
                 })
             })
         $(placeField).appendTo(placeContainer)
@@ -60,7 +60,6 @@ const form = {
             //The review should not be visible until the user enters it (via the "edit") feature on the display card.
         }
 
-        // fetchData.postInterests(newInterestObj)
         fetchData.postInterest(newInterestObj)
         .then(p => {
         })
@@ -77,7 +76,7 @@ const form = {
             review: $("#review-field").val()
         }
 
-        fetchData.deleteInterest(id, deleteInterestObj) // Is it necessary to have the both elements in the fetch call as arguments?
+        fetchData.deleteInterest(deleteInterestObj) // Is it necessary to have the both elements in the fetch call as arguments?
         .then(del => {
 
         })

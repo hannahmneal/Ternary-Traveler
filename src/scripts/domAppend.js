@@ -31,21 +31,21 @@ const domAppender = {
         //   }
 
 
-        let placeDisplayFragment = $("div")
-        placeDisplayFragment.appendTo(displayCardsContainer)
-        $("<h4>").text(entry.name).appendTo(placeDisplayFragment)
-        $("<p>").text(entry.description).appendTo(placeDisplayFragment)
-        $("<p>").text(entry.place).appendTo(placeDisplayFragment)
-        $("<p>").text(entry.cost).appendTo(placeDisplayFragment)
-        // $("<p>").attr({"id":"cost", "contentEditable": false}).text(entry.cost).appendTo(placeDisplayFragment) // I want to use contentEditable to change this to an editable field upon "click"
+        // let displayCardsContainer = $("div")
+        // displayCardsContainer.appendTo(displayCardsContainer)
+        $("<h4>").text(entry.name).appendTo(displayCardsContainer)
+        $("<p>").text(entry.description).appendTo(displayCardsContainer)
+        $("<p>").text(entry.place).appendTo(displayCardsContainer)
+        $("<p>").text(entry.cost).appendTo(displayCardsContainer)
+        // $("<p>").attr({"id":"cost", "contentEditable": false}).text(entry.cost).appendTo(displayCardsContainer) // I want to use contentEditable to change this to an editable field upon "click"
         // It is not necessary to declare a variable before creating and appending the elements; jQuery doesn't care about that.
-        // Therefore, this: let cardContentDesc = $("<p>").attr({"id": "card-content-desc"}).appendTo(placeDisplayFragment) is incorrect for jQ.
+        // Therefore, this: let cardContentDesc = $("<p>").attr({"id": "card-content-desc"}).appendTo(displayCardsContainer) is incorrect for jQ.
 
 
 
 //============================================      EDIT BUTTON     =====================================================================
 
-        $("<button>").attr({"id": "edit-btn","type": "submit"}).text("Edit").appendTo(placeDisplayFragment)
+        $("<button>").attr({"id": "edit-btn","type": "submit"}).text("Edit").appendTo(displayCardsContainer)
         // .click((event) => {event.preventDefault(); editInterest.handleEdit()})
 
 //======================================    HANDLE DELETE AND CAPTURE ENTRY "ID"    ===============================================
@@ -54,7 +54,7 @@ const domAppender = {
         // If the user clicks, "yes", delete
         // If the user clicks, "no", break the handle event
 
-        $("<button>").attr({"class": "delete-btn", "id": `${entry.id}`,"type": "submit"}).click((event) => {form.deleteHandler()}).text("Delete").appendTo(placeDisplayFragment)
+        $("<button>").attr({"class": "delete-btn", "id": `${entry.id}`,"type": "submit"}).click((event) => {form.deleteHandler()}).text("Delete").appendTo(displayCardsContainer)
         // In order to capture the "id" value of the API entry in the "places" array,
         //set the button attribute id like this:
         // .attr({"id": `${entry.id}`})
@@ -63,7 +63,7 @@ const domAppender = {
 //============================================      SAVE BUTTON     =====================================================================================
 // The save button needs to trigger a handler that sends PATCH to the API and updates the cards display
 
-        $("<button>").attr({"id": "save-btn", "type": "submit"}).text("Save").appendTo(placeDisplayFragment)
+        $("<button>").attr({"id": "save-btn", "type": "submit"}).text("Save").appendTo(displayCardsContainer)
         // .click((event) => {event.preventDefault(); editInterest.handleSave()})
         // The .click is for the edit form later; the module and methods have not been created yet
 

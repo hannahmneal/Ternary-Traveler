@@ -40,7 +40,7 @@ const domAppender = {
 
 //============================================      SAVE BUTTON     =====================================================================================
 // The save button needs to trigger a handler that sends PATCH to the API and updates the cards display
- 
+
         $("<button>").attr({"id": "save-btn", "type": "submit"}).text("Save").appendTo(displayCardsContainer)
         // .click((event) => {event.preventDefault(); editInterest.handleSave()})
         // The .click is for the edit form later; the module and methods have not been created yet

@@ -3,13 +3,11 @@
 const fetchData = {
     // Use a method to perform a "plug-in" function that will execute fetches with various arguments (a "fetch factory")
     getPlaces() {
-        // places
         return fetch("http://localhost:8088/places")
         .then(place => place.json())
     },
 
     getInterests() {
-    // interests
     // return fetch("http://localhost:8088/interests/?_expand=place")   // What does this mean?
     return fetch("http://localhost:8088/interests")
     .then(interests => interests.json())

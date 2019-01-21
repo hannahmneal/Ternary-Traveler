@@ -1,7 +1,7 @@
 // Fetch call
 
 const fetchData = {
-    // Use a method to perform a "plug-in" function that will execute fetches with various arguments
+    // Use a method to perform a "plug-in" function that will execute fetches with various arguments (a "fetch factory")
     getPlaces() {
         // places
         return fetch("http://localhost:8088/places")
@@ -14,6 +14,7 @@ const fetchData = {
     return fetch("http://localhost:8088/interests")
     .then(interests => interests.json())
     },
+
     postPlaces(i) {
         return fetch("http://localhost:8088/places", {
             method: "POST",

@@ -45,7 +45,7 @@ const fetchData = {
 //=========================================     FETCH EDITED CONTENT    =================================================
     //PATCH interests
         patchInterests(id, review) {  // propEdit = edited property of an existing object in the database, i.e., cost or review
-        return fetch(`http://localhost:8088/interests${id}`, {
+        return fetch(`http://localhost:8088/interests/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -55,16 +55,16 @@ const fetchData = {
         })
     },
 
-        getEditedInterests(editId) {
-            return fetch(`http://localhost:8088/interests/${editId}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(editId)
-        }).then(r => r.json())
-            console.log(editedInt);
-    }
+    //     getEditedInterests(editId) {
+    //         return fetch(`http://localhost:8088/interests/${editId}`, {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(editId)
+    //     }).then(r => r.json())
+    //         console.log(editedInt);
+    // }
 }
 
 export default fetchData
